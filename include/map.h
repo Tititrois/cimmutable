@@ -1,4 +1,3 @@
-
 #ifndef _MAP_H
 #define _MAP_H
 
@@ -29,7 +28,6 @@ typedef imc_map_iterator_t;
 
 void imc_map_iterate(imc_map_t* map,
             imc_map_iterator_t *iter);
-
 /* user-side memory management */
 
 int imc_map_unref(imc_map_t* map);

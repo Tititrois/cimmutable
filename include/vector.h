@@ -1,6 +1,13 @@
-
 #ifndef _VECTOR_H
 #define _VECTOR_H
+
+#include "../src/rrb_vect.h"
+
+typedef struct imc_rrb_vector {
+    int max_depth;
+    int m;
+    imc_intern_t* root;
+} imc_rrb_vector_t;
 
 typedef imc_vector_t;
 typedef imc_data_t;
