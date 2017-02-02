@@ -1,6 +1,6 @@
 #ifndef IMC_AVL
 
-#define IMC_AVL
+#define IMC_AVL 1
 
 typedef imc_data_t;
 typedef imc_key_t;

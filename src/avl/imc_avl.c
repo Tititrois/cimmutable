@@ -489,16 +489,16 @@ imc_avl_node_t* imc_avl_insert( imc_avl_node_t* tree,
 
     imc_avl_node_t* result;
 
-
+#ifdef DEBUG
     imc_avl_node_t* copy_tree = imc_avl_copy(tree);
     int k;
 
     k = check_invariant(tree, comparator);
     if (k == -1) printf("INSERT_ERROR_AV\n");
     else printf("INSERT_OK_AV\n");
-
+#endif
     result = imc_avl_insert_rec(tree, data, key, comparator, prev_data);
-
+#ifdef DEBUG
     k = check_invariant(result, comparator);
     if (k == -1) printf("INSERT_ERROR_AP\n");
     else printf("INSERT_OK_AP\n");
@@ -508,7 +508,7 @@ imc_avl_node_t* imc_avl_insert( imc_avl_node_t* tree,
     if (k < 0) printf("INSERT_POSTCONDIPB : %d\n", k);
     else printf("INSERT_POSTCONDI_OK\n");
     //imc_avl_dump(result, print4);
-
+#endif
     return result;
 }
 
@@ -800,15 +800,15 @@ imc_avl_node_t* imc_avl_remove( imc_avl_node_t* tree,
 
     imc_avl_node_t* result;
     int k;
-
+#ifdef DEBUG
     imc_avl_node_t* copy_tree = imc_avl_copy(tree);
 
     k = check_invariant(tree, comparator);
     if (k == -1) printf("DELETE_ERROR_AV\n");
     else printf("DELETE_OK_AV\n");
-
+#endif
     result = imc_avl_remove_rec(tree, key, comparator, removed_data);
-
+#ifdef DEBUG
     k = check_invariant(result, comparator);
     if (k == -1) printf("DELETE_ERROR_AP\n");
     else printf("DELETE_OK_AP\n");
@@ -818,7 +818,7 @@ imc_avl_node_t* imc_avl_remove( imc_avl_node_t* tree,
 
     if (k < 0) printf("DELETE_POSTCONDIPB : %d\n", k);
     else printf("DELETE_POSTCONDI_OK\n");
-
+#endif
     return result;
 
 }
